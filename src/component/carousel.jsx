@@ -23,7 +23,7 @@ const CarouselSection = () => {
   };
 
   return (
-    <section id="gallery" className="px-20 bg-stone-100 overflow-hidden flex flex-col justify-center">
+    <section id="gallery" className="p-20 bg-stone-100 overflow-hidden flex flex-col justify-center">
       
       {/* Section Header */}
       <div className="text-center mb-12">
@@ -37,7 +37,7 @@ const CarouselSection = () => {
       </div>
 
       {/* 3D Focus Carousel Viewport Container */}
-      <div className="relative w-full max-w-7xl mx-auto h-[60vh] lg:h-[80] flex items-center justify-center px-4">
+      <div className="relative w-full max-w-7xl mx-auto h-[60vh] lg:h-[80vh] flex items-center justify-center px-4">
         
         {/* Left Navigation Arrow */}
         <button 
@@ -73,8 +73,8 @@ const CarouselSection = () => {
               <div
                 key={cake.id}
                 onClick={() => !isCenter && setActiveIndex(index)}
-                className={`absolute w-[280px] sm:w-[320px] md:w-[360px] h-[60vh] lg:h-[80] rounded-xl overflow-hidden shadow-xl transition-all duration-500 ease-out cursor-pointer select-none origin-center
-                  ${isCenter ? 'z-20 scale-100 opacity-100' : ''}
+                className={`absolute w-[280px] sm:w-[320px] md:w-[360px] h-[60vh] lg:h-[80vh] rounded-xl overflow-hidden shadow-xl transition-all duration-500 ease-out cursor-pointer select-none origin-center
+                  ${isCenter ? 'z-20 scale-100 animate-on-display animate-scale-up opacity-100' : ''}
                   ${isLeft ? 'z-10 -translate-x-[65%] sm:-translate-x-[75%] scale-85 opacity-60 bg-stone-950/20' : ''}
                   ${isRight ? 'z-10 translate-x-[65%] sm:translate-x-[75%] scale-85 opacity-60 bg-stone-950/20' : ''}
                   ${isFarLeft ? 'z-0 -translate-x-[120%] scale-70 opacity-30 pointer-events-none' : ''}

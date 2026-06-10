@@ -15,7 +15,7 @@ const Hero = () => {
         
         {/* Hero Text (Italian Style Font) */}
         <h1 
-          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-serif text-stone-900 tracking-tight mb-4"
+          className="text-4xl animate-fade-in sm:text-5xl md:text-6xl lg:text-7xl font-serif text-stone-900 tracking-tight mb-4"
           style={{ fontFamily: "'Playfair Display', 'Bodoni MT', serif" }}
         >
           Baked from <br />
@@ -23,7 +23,7 @@ const Hero = () => {
         </h1>
 
         {/* Supporting Subtext */}
-        <p className="max-w-2xl mx-auto text-sm sm:text-base md:text-lg text-stone-600 font-light leading-relaxed mb-8">
+        <p className="max-w-2xl animate-fade-in mx-auto text-sm sm:text-base md:text-lg text-stone-600 font-light leading-relaxed mb-8">
           From intimate personal milestones to grand event centerpieces, we translate your imagination into breathtaking, delicious reality.
         </p>
 
