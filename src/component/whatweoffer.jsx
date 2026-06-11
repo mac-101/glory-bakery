@@ -48,15 +48,15 @@ const WhatWeOffer = () => {
                 <img src="https://images.unsplash.com/photo-1606983340126-99ab4feaa64a?q=80&w=1026&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Personal custom cakes" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
               </div>
 
-              <div className="flex items-center gap-3 text-amber-800 mb-4 animate-slide-left animation-delay-400">
-                <Sparkles className="w-5 h-5 animate-spin-slow" />
-                <span className="text-xs uppercase font-semibold tracking-wider">01 / Artisanal Precision</span>
+              <div className="flex items-center gap-3 text-amber-800 mb-4">
+                <Sparkles className="w-5 h-5" />
+                <span className="text-xs uppercase font-semibold tracking-wider">01 / Curated Moments</span>
               </div>
-              <h3 className="text-2xl md:text-3xl font-serif text-stone-900 mb-4 animate-slide-left animation-delay-500">Bespoke Personal Cake Creations</h3>
-              <p className="text-stone-600 font-light leading-relaxed mb-6 animate-fade-in animation-delay-500">
-                We interpret feelings into flavor. Birthdays, engagements, or personal milestones deserve more than sugar. Each cake is a conversation between you and our artisanal team, rendered in fondant, ganache, and botanical artistry.
+              <h3 className="text-2xl md:text-3xl font-serif text-stone-900 mb-4">Cakes for Personal Celebrations</h3>
+              <p className="text-stone-600 font-light leading-relaxed mb-6">
+                Turn your private milestones into historical memories. Whether it is an intimate birthday, a golden anniversary, or a whimsical surprise party, we work directly with your vision to construct a center tile completely custom to your color palette and flavor preferences.
               </p>
-              <button className="flex items-center gap-2 text-stone-900 font-medium text-sm group-hover:text-amber-800 transition-colors hover:scale-105 transform duration-200 animate-slide-right animation-delay-600">
+              <button className="flex items-center gap-2 text-stone-900 font-medium text-sm group-hover:text-amber-800 transition-colors">
                 <span>Inquire Personal Design</span>
                 <ArrowUpRight className="w-4 h-4 transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
               </button>
@@ -82,22 +82,11 @@ const WhatWeOffer = () => {
                 <ArrowUpRight className="w-4 h-4 transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
               </button>
             </div>
-            <div className="flex items-center gap-3 text-amber-800 mb-4">
-              <Sparkles className="w-5 h-5" />
-              <span className="text-xs uppercase font-semibold tracking-wider">03 / Curated Moments</span>
-            </div>
-            <h3 className="text-2xl md:text-3xl font-serif text-stone-900 mb-4">Cakes for Personal Celebrations</h3>
-            <p className="text-stone-600 font-light leading-relaxed mb-6">
-              Turn your private milestones into historical memories. Whether it is an intimate birthday, a golden anniversary, or a whimsical surprise party, we work directly with your vision to construct a center tile completely custom to your color palette and flavor preferences.
-            </p>
-            <button className="flex items-center gap-2 text-stone-900 font-medium text-sm group-hover:text-amber-800 transition-colors">
-              <span>Inquire Personal Design</span>
-              <ArrowUpRight className="w-4 h-4 transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-            </button>
+            
           </div>
 
           {/* Row 2: Event Cake Needs */}
-          
+
 
           {/* Row 3: Baking Training with the 4-Picture Grid Wrap */}
           {/* <div className="group pb-12">
