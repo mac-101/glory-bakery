@@ -4,9 +4,11 @@ import { ArrowUpRight, ChevronLeft, ChevronRight } from 'lucide-react';
 const AcademySection = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
+  const [isHovering, setIsHovering] = useState(false);
   const filmstripRef = useRef(null);
   const cardRefs = useRef([]);
   const isScrollingRef = useRef(false);
+  const autoScrollInterval = 2000; // 5 seconds
 
   const academyItems = [
     {
@@ -93,6 +95,17 @@ const AcademySection = () => {
     }
   }, [activeIndex, isMobile]);
 
+  // Auto-scroll effect
+  useEffect(() => {
+    if (isHovering) return; // Pause on hover
+    
+    const interval = setInterval(() => {
+      setActiveIndex((prev) => (prev === academyItems.length - 1 ? 0 : prev + 1));
+    }, autoScrollInterval);
+
+    return () => clearInterval(interval);
+  }, [isHovering, academyItems.length]);
+
   const handlePrev = () => {
     setActiveIndex(prev => (prev === 0 ? academyItems.length - 1 : prev - 1));
   };
@@ -123,24 +136,28 @@ const AcademySection = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
 
         {/* Header */}
-        <div className="text-center max-w-2xl mx-auto mb-12 md:mb-16">
-          <span className="text-xs tracking-[0.2em] text-amber-700 uppercase font-mono mb-3 block">
+        <div className="text-center max-w-2xl mx-auto mb-12 md:mb-16 animate-on-display">
+          <span className="text-xs tracking-[0.2em] text-amber-700 uppercase font-mono mb-3 block animation-delay-100">
             The Academy
           </span>
           <h2
-            className="text-4xl md:text-5xl lg:text-6xl font-serif text-stone-950 tracking-tight mb-4"
+            className="text-4xl md:text-5xl lg:text-6xl font-serif text-stone-950 tracking-tight mb-4 animation-delay-200"
             style={{ fontFamily: "'Playfair Display', 'Bodoni MT', serif" }}
           >
             Pass the Torch
           </h2>
-          <p className="text-stone-500 text-base font-light italic">
+          <p className="text-stone-500 text-base font-light italic animation-delay-300">
             Not a class. A craft apprenticeship.
           </p>
         </div>
 
         {/* DESKTOP: Horizontal Filmstrip */}
         {!isMobile && (
-          <div className="relative mb-16 group">
+          <div 
+            className="relative mb-16 group"
+            onMouseEnter={() => setIsHovering(true)}
+            onMouseLeave={() => setIsHovering(false)}
+          >
             <button
               onClick={handlePrev}
               className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white/80 hover:bg-white p-2 shadow-md transition-all duration-300 opacity-0 group-hover:opacity-100"
@@ -168,15 +185,16 @@ const AcademySection = () => {
                     key={idx}
                     ref={el => cardRefs.current[idx] = el}
                     onClick={() => setActiveIndex(idx)}
-                    className={`cursor-pointer transition-all duration-500 ease-out flex-shrink-0 ${
-                      idx === activeIndex ? 'shadow-2xl border-stone-400' : 'opacity-50 hover:opacity-70'
+                    className={`cursor-pointer transition-all duration-500 ease-out flex-shrink-0 animate-bounce-in ${
+                      idx === activeIndex ? 'shadow-2xl border-stone-400 animate-glow' : 'opacity-50 hover:opacity-70'
                     }`}
                     style={{
                       width: '260px',
                       transition: 'all 0.4s ease-out',
                       border: '1px solid',
                       borderColor: idx === activeIndex ? '#d6d3d1' : '#e7e5e4',
-                      transform: idx === activeIndex ? 'scale(1.1)' : 'scale(0.9)'
+                      transform: idx === activeIndex ? 'scale(1.1)' : 'scale(0.9)',
+                      animationDelay: `${idx * 100}ms`
                     }}
                   >
                     <div className="relative bg-white">
@@ -204,7 +222,11 @@ const AcademySection = () => {
 
         {/* MOBILE: Vertical Filmstrip (like desktop but stacked) */}
         {isMobile && (
-          <div className="relative mb-16">
+          <div 
+            className="relative mb-16"
+            onMouseEnter={() => setIsHovering(true)}
+            onMouseLeave={() => setIsHovering(false)}
+          >
             <div
               ref={filmstripRef}
               className="h-[600px] overflow-y-auto scroll-smooth"

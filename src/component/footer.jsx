@@ -27,24 +27,24 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
           
           {/* Brand Column (Spans 6/12) */}
-          <div className="md:col-span-6 space-y-3">
+          <div className="md:col-span-6 space-y-3 animate-fade-in">
             <h3 
-              className="text-2xl sm:text-3xl font-serif text-white tracking-wide"
+              className="text-2xl sm:text-3xl font-serif text-white tracking-wide animation-delay-100"
               style={{ fontFamily: "'Playfair Display', 'Bodoni MT', serif" }}
             >
               Glory Bakery
             </h3>
-            <p className="text-xs sm:text-sm font-light text-stone-400 max-w-sm leading-relaxed">
+            <p className="text-xs sm:text-sm font-light text-stone-400 max-w-sm leading-relaxed animation-delay-200">
               Bringing architectural custom cake blueprints and artisanal masterclasses into physical, mouthwatering dimensions.
             </p>
           </div>
 
           {/* Directory Navigation Links Column (Spans 3/12) */}
-          <div className="md:col-span-3 flex flex-col space-y-2">
+          <div className="md:col-span-3 flex flex-col space-y-2 animate-fade-in animation-delay-300">
             <span className="text-[10px] uppercase font-semibold tracking-widest text-amber-400 mb-1">Explore</span>
-            <a href="#gallery" className="text-xs text-stone-300 hover:text-white transition-colors w-fit">The Signature Gallery</a>
-            <a href="#services" className="text-xs text-stone-300 hover:text-white transition-colors w-fit">Creations & Classes</a>
-            <a href="#team" className="text-xs text-stone-300 hover:text-white transition-colors w-fit">Meet the Artisans</a>
+            <a href="#gallery" className="text-xs text-stone-300 hover:text-white transition-colors w-fit hover:translate-x-1 hover:scale-110 transform duration-200">The Signature Gallery</a>
+            <a href="#services" className="text-xs text-stone-300 hover:text-white transition-colors w-fit hover:translate-x-1 hover:scale-110 transform duration-200">Creations & Classes</a>
+            <a href="#team" className="text-xs text-stone-300 hover:text-white transition-colors w-fit hover:translate-x-1 hover:scale-110 transform duration-200">Meet the Artisans</a>
           </div>
 
           {/* Social Links Column (Spans 3/12) */}

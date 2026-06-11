@@ -42,11 +42,21 @@ const Navbar = () => {
 
           {/* Center: Core Desktop Links */}
           <div className="hidden md:flex space-x-8">
-            <a href="#gallery" className="text-gray-700 hover:text-amber-700 font-medium transition-colors">Gallery</a>
-            <a href="#services" className="text-gray-700 hover:text-amber-700 font-medium transition-colors">What We Offer</a>
-            <a href="#academy" className="text-gray-700 hover:text-amber-700 font-medium transition-colors">Academy</a>
-            <a href="#team" className="text-gray-700 hover:text-amber-700 font-medium transition-colors">Our Team</a>
-            <a href="#location" className="text-gray-700 hover:text-amber-700 font-medium transition-colors">Find Us</a>
+            <a href="#gallery" className="text-gray-700 hover:text-amber-700 font-medium transition-colors hover:scale-125 transform duration-200 hover:animate-bounce relative group">Gallery
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-amber-700 group-hover:w-full transition-all duration-300"></span>
+            </a>
+            <a href="#services" className="text-gray-700 hover:text-amber-700 font-medium transition-colors hover:scale-125 transform duration-200 hover:animate-bounce relative group">What We Offer
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-amber-700 group-hover:w-full transition-all duration-300"></span>
+            </a>
+            <a href="#academy" className="text-gray-700 hover:text-amber-700 font-medium transition-colors hover:scale-125 transform duration-200 hover:animate-bounce relative group">Academy
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-amber-700 group-hover:w-full transition-all duration-300"></span>
+            </a>
+            <a href="#team" className="text-gray-700 hover:text-amber-700 font-medium transition-colors hover:scale-125 transform duration-200 hover:animate-bounce relative group">Our Team
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-amber-700 group-hover:w-full transition-all duration-300"></span>
+            </a>
+            <a href="#location" className="text-gray-700 hover:text-amber-700 font-medium transition-colors hover:scale-125 transform duration-200 hover:animate-bounce relative group">Find Us
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-amber-700 group-hover:w-full transition-all duration-300"></span>
+            </a>
           </div>
 
           {/* Right: Action Buttons (CTAs) */}

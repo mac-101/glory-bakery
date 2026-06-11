@@ -38,41 +38,41 @@ const MeetTheTeam = () => {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
                 {/* Section Header */}
-                <div className="mb-16 text-center lg:text-left">
-                    <span className="text-xs tracking-widest text-amber-400 uppercase font-semibold">The Artisans</span>
+                <div className="mb-16 text-center lg:text-left animate-on-display">
+                    <span className="text-xs tracking-widest text-amber-400 uppercase font-semibold animation-delay-100">The Artisans</span>
                     <h2
-                        className="text-3xl md:text-5xl font-serif tracking-tight mt-2 text-white"
+                        className="text-3xl md:text-5xl font-serif tracking-tight mt-2 text-white animation-delay-200"
                         style={{ fontFamily: "'Playfair Display', 'Bodoni MT', serif" }}
                     >
                         Meet the Masters
                     </h2>
-                    <div className="w-16 h-0.5 bg-amber-500 mt-4 mx-auto lg:mx-0" />
+                    <div className="w-16 h-0.5 bg-amber-500 mt-4 mx-auto lg:mx-0 animation-delay-300" />
                 </div>
 
                 {/* Master Asymmetrical Grid Wrapper */}
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 ">
 
                     {/* LEFT COLUMN: Dominant Team Leader Frame (Spans 5/12 of the grid) */}
-                    <div className="lg:col-span-5 group">
-                        <div className="relative aspect-[3/4] w-full rounded-xl overflow-hidden shadow-2xl bg-stone-800 mb-6">
+                    <div className="lg:col-span-5 group animate-on-display animation-delay-200">
+                        <div className="relative aspect-[3/4] w-full rounded-xl overflow-hidden shadow-2xl bg-stone-800 mb-6 animate-glow">
                             <img
                                 src={teamLeader.img}
                                 alt={teamLeader.name}
-                                className="w-full h-full object-cover group-hover:scale-102 transition-transform duration-700"
+                                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                             />
                             <div className="absolute inset-0 bg-gradient-to-t from-stone-950 via-stone-950/20 to-transparent" />
 
                             {/* Floating Quote Badge */}
-                            <div className="absolute bottom-6 left-6 right-6 p-6 bg-stone-950/80 backdrop-blur-md rounded-lg border border-stone-800">
-                                <Sparkles className="w-5 h-5 text-amber-400 mb-2" />
+                            <div className="absolute bottom-6 left-6 right-6 p-6 bg-stone-950/80 backdrop-blur-md rounded-lg border border-stone-800 animate-float-up animation-delay-400">
+                                <Sparkles className="w-5 h-5 text-amber-400 mb-2 animate-spin-slow" />
                                 <p className="text-sm font-light italic text-stone-300 leading-relaxed">
                                     "{teamLeader.quote}"
                                 </p>
                             </div>
                         </div>
 
-                        <h3 className="text-2xl font-serif text-white tracking-wide">{teamLeader.name}</h3>
-                        <p className="text-amber-400 text-sm font-medium tracking-wide mt-1">{teamLeader.role}</p>
+                        <h3 className="text-2xl font-serif text-white tracking-wide animate-slide-left animation-delay-300">{teamLeader.name}</h3>
+                        <p className="text-amber-400 text-sm font-medium tracking-wide mt-1 animate-slide-left animation-delay-400">{teamLeader.role}</p>
                     </div>
 
                     {/* RIGHT COLUMN: Tight Horizontal Grid for the 3 Bakers (Spans 7/12 of the grid) */}
@@ -80,24 +80,24 @@ const MeetTheTeam = () => {
                         <div className="flex flex-col justify-center h-full  lg:pt-4">
 
                             <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 w-full">
-                                {bakers.map((baker) => (
-                                    <div key={baker.id} className="bg-stone-950/40 p-4 rounded-xl border border-stone-800/60 hover:border-amber-500/30 transition-all duration-300 group flex flex-col">
+                                {bakers.map((baker, idx) => (
+                                    <div key={baker.id} className="bg-stone-950/40 p-4 rounded-xl border border-stone-800/60 hover:border-amber-500/30 transition-all duration-300 group flex flex-col animate-bounce-in hover:animate-glow" style={{ animationDelay: `${idx * 150}ms` }}>
 
                                         {/* Tight Square Image Wrapper */}
                                         <div className="aspect-square w-full rounded-lg overflow-hidden mb-4 bg-stone-800">
                                             <img
                                                 src={baker.img}
                                                 alt={baker.name}
-                                                className="w-full h-full object-cover filter grayscale group-hover:grayscale-0 transition-all duration-500 group-hover:scale-105"
+                                                className="w-full h-full object-cover filter grayscale group-hover:grayscale-0 transition-all duration-500 group-hover:scale-110"
                                             />
                                         </div>
 
                                         {/* Card Info */}
                                         <div className="flex-grow">
-                                            <h4 className="text-lg font-serif text-stone-100 tracking-wide group-hover:text-amber-400 transition-colors">
+                                            <h4 className="text-lg font-serif text-stone-100 tracking-wide group-hover:text-amber-400 transition-colors animate-slide-left" style={{ animationDelay: `${idx * 150 + 100}ms` }}>
                                                 {baker.name}
                                             </h4>
-                                            <p className="text-xs text-stone-400 font-medium mt-0.5">{baker.role}</p>
+                                            <p className="text-xs text-stone-400 font-medium mt-0.5 animate-slide-left" style={{ animationDelay: `${idx * 150 + 200}ms` }}>{baker.role}</p>
 
                                             <div className="mt-3 pt-3 border-t border-stone-800/80">
                                                 <span className="text-[11px] uppercase tracking-wider text-amber-500/80 font-semibold block">Specialty:</span>
@@ -107,11 +107,11 @@ const MeetTheTeam = () => {
 
                                         {/* Social/Contact Strip */}
                                         <div className="flex items-center gap-3 mt-4 pt-2 text-stone-500 group-hover:text-stone-400 transition-colors">
-                                            <button aria-label="CamerIcon profile" className="hover:text-amber-400 transition-colors">
+                                            <button aria-label="CamerIcon profile" className="hover:text-amber-400 transition-colors hover:scale-125 transform duration-200 hover:rotate-12">
                                                 <img src="/api/placeholder/14/14" alt="" className="hidden" /> {/* Fallback hook */}
                                                 <CameraIcon className="w-4 h-4" />
                                             </button>
-                                            <button aria-label="Email contact" className="hover:text-amber-400 transition-colors">
+                                            <button aria-label="Email contact" className="hover:text-amber-400 transition-colors hover:scale-125 transform duration-200 hover:-rotate-12">
                                                 <Mail className="w-4 h-4" />
                                             </button>
                                         </div>

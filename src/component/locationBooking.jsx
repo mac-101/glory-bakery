@@ -11,27 +11,27 @@ const LocationAndBooking = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-stretch">
           
           {/* LEFT SIDE: Location & Contact Details */}
-          <div className="lg:col-span-5 flex flex-col justify-between">
+          <div className="lg:col-span-5 flex flex-col justify-between animate-on-display">
             <div>
-              <span className="text-xs tracking-widest text-amber-800 uppercase font-semibold">Visit the Gallery</span>
+              <span className="text-xs tracking-widest text-amber-800 uppercase font-semibold animation-delay-100">Visit the Gallery</span>
               <h2 
-                className="text-3xl md:text-5xl font-serif text-stone-950 tracking-tight mt-2 mb-6"
+                className="text-3xl md:text-5xl font-serif text-stone-950 tracking-tight mt-2 mb-6 animation-delay-200"
                 style={{ fontFamily: "'Playfair Display', 'Bodoni MT', serif" }}
               >
                 Where to Find Us
               </h2>
               
-              <div className="space-y-6 text-stone-700 font-light">
-                <div className="flex items-start gap-4">
-                  <MapPin className="w-5 h-5 text-amber-800 flex-shrink-0 mt-1" />
+              <div className="space-y-6 text-stone-700 font-light animation-delay-300">
+                <div className="flex items-start gap-4 hover:translate-x-2 transition-transform duration-300">
+                  <MapPin className="w-5 h-5 text-amber-800 flex-shrink-0 mt-1 animate-bounce" />
                   <div>
                     <h4 className="font-medium text-stone-900">Glory Bakery HQ</h4>
                     <p className="text-sm mt-0.5">Via della Moscova, 24, 20121 Milano MI, Italy</p>
                   </div>
                 </div>
 
-                <div className="flex items-start gap-4">
-                  <Clock className="w-5 h-5 text-amber-800 flex-shrink-0 mt-1" />
+                <div className="flex items-start gap-4 hover:translate-x-2 transition-transform duration-300">
+                  <Clock className="w-5 h-5 text-amber-800 flex-shrink-0 mt-1 animate-spin-slow" />
                   <div>
                     <h4 className="font-medium text-stone-900">Operating Hours</h4>
                     <p className="text-sm mt-0.5">Tuesday – Saturday: 09:00 – 19:00</p>
@@ -39,8 +39,8 @@ const LocationAndBooking = () => {
                   </div>
                 </div>
 
-                <div className="flex items-start gap-4">
-                  <Phone className="w-5 h-5 text-amber-800 flex-shrink-0 mt-1" />
+                <div className="flex items-start gap-4 hover:translate-x-2 transition-transform duration-300">
+                  <Phone className="w-5 h-5 text-amber-800 flex-shrink-0 mt-1 animate-pulse-glow" />
                   <div>
                     <h4 className="font-medium text-stone-900">Direct Line</h4>
                     <p className="text-sm mt-0.5">+39 02 1234 5678</p>

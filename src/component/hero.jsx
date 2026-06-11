@@ -19,24 +19,24 @@ const Hero = () => {
           style={{ fontFamily: "'Playfair Display', 'Bodoni MT', serif" }}
         >
           Baked from <br />
-          <span className="italic text-amber-800 font-normal">your vision</span>
+          <span className="italic text-amber-800 font-normal animate-float">your vision</span>
         </h1>
 
         {/* Supporting Subtext */}
-        <p className="max-w-2xl animate-fade-in mx-auto text-sm sm:text-base md:text-lg text-stone-600 font-light leading-relaxed mb-8">
+        <p className="max-w-2xl animate-fade-in animation-delay-100 mx-auto text-sm sm:text-base md:text-lg text-stone-600 font-light leading-relaxed mb-8">
           From intimate personal milestones to grand event centerpieces, we translate your imagination into breathtaking, delicious reality.
         </p>
 
         {/* Dual Call-to-Action Buttons */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-on-display animation-delay-300">
           
-          <button className="w-full sm:w-auto flex items-center justify-center gap-3 px-4 py-2 bg-amber-800 hover:bg-amber-900 text-white rounded-md shadow-md transition-all duration-200 transform hover:-translate-y-0.5 font-medium text-sm sm:text-base">
-            <ShoppingBag className="w-5 h-5" />
+          <button className="w-full sm:w-auto flex items-center justify-center gap-3 px-4 py-2 bg-amber-800 hover:bg-amber-900 text-white rounded-md shadow-md transition-all duration-200 transform hover:-translate-y-0.5 hover:scale-110 font-medium text-sm sm:text-base hover:shadow-lg hover:animate-glow">
+            <ShoppingBag className="w-5 h-5 group-hover:rotate-12 transition-transform" />
             Order Custom Cake
           </button>
 
-          <button className="w-full sm:w-auto flex items-center justify-center gap-3 px-4 py-2 border-2 border-stone-800 hover:bg-stone-900 hover:text-white text-stone-900 rounded-md transition-all duration-200 transform hover:-translate-y-0.5 font-medium text-sm sm:text-base">
-            <Users className="w-5 h-5" />
+          <button className="w-full sm:w-auto flex items-center justify-center gap-3 px-4 py-2 border-2 border-stone-800 hover:bg-stone-900 hover:text-white text-stone-900 rounded-md transition-all duration-200 transform hover:-translate-y-0.5 hover:scale-110 font-medium text-sm sm:text-base hover:shadow-lg">
+            <Users className="w-5 h-5 group-hover:-rotate-12 transition-transform" />
             Book Our Team
           </button>
           

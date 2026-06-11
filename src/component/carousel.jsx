@@ -1,8 +1,23 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight, Eye } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 const CarouselSection = () => {
   const [activeIndex, setActiveIndex] = useState(2); // Start with the 3rd card centered
+  const [isHovering, setIsHovering] = useState(false);
+  const autoScrollInterval = 2000; // 5 seconds
+  const navigate = useNavigate()
+
+  // Auto-scroll effect
+  useEffect(() => {
+    if (isHovering) return; // Pause on hover
+    
+    const interval = setInterval(() => {
+      setActiveIndex((prev) => (prev === 5 ? 0 : prev + 1)); // Assuming 6 cakes
+    }, autoScrollInterval);
+
+    return () => clearInterval(interval);
+  }, [isHovering]);
 
   // 6 Sample Cake Designs
   const cakes = [
@@ -28,21 +43,25 @@ const CarouselSection = () => {
       {/* Section Header */}
       <div className="text-center mb-12">
         <h2 
-          className="text-3xl md:text-5xl font-serif text-stone-950 tracking-wide"
+          className="text-3xl md:text-5xl font-serif text-stone-950 tracking-wide animate-on-display hover:animate-float"
           style={{ fontFamily: "'Playfair Display', 'Bodoni MT', serif" }}
         >
           Our Signature Gallery
         </h2>
-        <div className="w-16 h-0.5 bg-amber-800 mx-auto mt-4" />
+        <div className="w-16 h-0.5 bg-amber-800 mx-auto mt-4 animate-on-display animation-delay-100 hover:w-24 transition-all duration-300" />
       </div>
 
       {/* 3D Focus Carousel Viewport Container */}
-      <div className="relative w-full max-w-7xl mx-auto h-[60vh] lg:h-[80vh] flex items-center justify-center px-4">
+      <div 
+        className="relative w-full max-w-7xl mx-auto h-[60vh] lg:h-[80vh] flex items-center justify-center px-4"
+        onMouseEnter={() => setIsHovering(true)}
+        onMouseLeave={() => setIsHovering(false)}
+      >
         
         {/* Left Navigation Arrow */}
         <button 
           onClick={handlePrev}
-          className="absolute left-4 md:left-10 z-30 p-3 rounded-full bg-white/80 hover:bg-white text-stone-900 shadow-md backdrop-blur-sm transition-all hover:scale-105"
+          className="absolute left-4 md:left-10 z-30 p-3 rounded-full bg-white/80 hover:bg-white text-stone-900 shadow-md backdrop-blur-sm transition-all hover:scale-125 hover:-rotate-12 animate-bounce"
           aria-label="Previous Cake"
         >
           <ChevronLeft className="w-6 h-6" />
@@ -73,10 +92,10 @@ const CarouselSection = () => {
               <div
                 key={cake.id}
                 onClick={() => !isCenter && setActiveIndex(index)}
-                className={`absolute w-[280px] sm:w-[320px] md:w-[360px] h-[60vh] lg:h-[80vh] rounded-xl overflow-hidden shadow-xl transition-all duration-500 ease-out cursor-pointer select-none origin-center
-                  ${isCenter ? 'z-20 scale-100 animate-on-display animate-scale-up opacity-100' : ''}
-                  ${isLeft ? 'z-10 -translate-x-[65%] sm:-translate-x-[75%] scale-85 opacity-60 bg-stone-950/20' : ''}
-                  ${isRight ? 'z-10 translate-x-[65%] sm:translate-x-[75%] scale-85 opacity-60 bg-stone-950/20' : ''}
+                className={`absolute w-[280px] sm:w-[320px] md:w-[360px] h-[60vh] lg:h-[80vh] rounded-xl overflow-hidden shadow-xl transition-all duration-500 ease-out cursor-pointer select-none origin-center animate-zoom-in
+                  ${isCenter ? 'z-20 scale-100 opacity-100 animate-glow' : ''}
+                  ${isLeft ? 'z-10 -translate-x-[65%] sm:-translate-x-[75%] scale-85 opacity-60 bg-stone-950/20 hover:scale-90 transform' : ''}
+                  ${isRight ? 'z-10 translate-x-[65%] sm:translate-x-[75%] scale-85 opacity-60 bg-stone-950/20 hover:scale-90 transform' : ''}
                   ${isFarLeft ? 'z-0 -translate-x-[120%] scale-70 opacity-30 pointer-events-none' : ''}
                   ${isFarRight ? 'z-0 translate-x-[120%] scale-70 opacity-30 pointer-events-none' : ''}
                 `}
@@ -124,12 +143,20 @@ const CarouselSection = () => {
         {/* Right Navigation Arrow */}
         <button 
           onClick={handleNext}
-          className="absolute right-4 md:right-10 z-30 p-3 rounded-full bg-white/80 hover:bg-white text-stone-900 shadow-md backdrop-blur-sm transition-all hover:scale-105"
+          className="absolute right-4 md:right-10 z-30 p-3 rounded-full bg-white/80 hover:bg-white text-stone-900 shadow-md backdrop-blur-sm transition-all hover:scale-125 hover:rotate-12 animate-bounce"
           aria-label="Next Cake"
         >
           <ChevronRight className="w-6 h-6" />
         </button>
 
+      </div>
+
+      {/* More Gallery Button */}
+      <div className="flex justify-center mt-12 animate-on-display animation-delay-200">
+        <button onClick={() => navigate('/gallery')} className="px-8 py-3 bg-amber-800 hover:bg-amber-900 text-white font-serif tracking-widest uppercase text-sm transition-all hover:shadow-2xl rounded-md hover:scale-110 hover:-translate-y-1 transform duration-300 hover:animate-glow relative group">
+          <span className="relative z-10">View More Gallery</span>
+          <div className="absolute inset-0 bg-gradient-to-r from-amber-700 to-amber-900 rounded-md opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+        </button>
       </div>
     </section>
   );
