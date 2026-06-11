@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { X, ArrowLeft } from 'lucide-react';
 
@@ -126,6 +126,10 @@ function Lightbox({ item, onClose }) {
 export default function Gallery() {
   const [selectedItem, setSelectedItem] = useState(null);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, []);
 
   return (
     <section className="bg-[#FFFDF9] py-16 px-4 md:px-8">
